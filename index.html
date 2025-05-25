@@ -1,135 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Online CV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mikhail Goncharenko | CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #e8efff;           /* light gray page background */
+      --card: rgb(255, 255, 255);
+      --backgound: linear-gradient(0deg, rgb(122, 222, 255) 0%, rgb(55, 155, 255) 100%);
+      --text: #1a202c;         /* near‑black */
+      --accent: rgb(55, 155, 255);      /* blue for emphasis */
+      --border: #e2e8f0;       /* subtle borders */
+      --shadow: 0 1px 3px rgba(0,0,0,.08); /* soft card shadow */
+    }
 
-        header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
 
-        header h1 {
-            margin: 0;
-            font-weight: 700;
-        }
+    /* ---------- LAYOUT ---------- */
+    header {
+      background: var(--backgound);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 1rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 { font-size: 2.25rem; font-weight: 700; margin-bottom: .25rem; }
+    header p  { font-size: 1.1rem; font-weight: 400; }
 
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: 3rem auto;
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+    nav { margin-top: 1.75rem; }
+    nav ul { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; list-style: none; }
+    nav a {
+      display: inline-block;
+      padding: .55rem 1rem;
+      background: var(--card);
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--text);
+      box-shadow: var(--shadow);
+      transition: background .15s ease, transform .15s ease;
+    }
+    nav a:hover { background: var(--bg); }
+    nav a:active { transform: scale(.97); }
 
-        .section-title {
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #444;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 0.5rem;
-        }
+    .container { width: 92%; max-width: 900px; margin: 3rem auto; }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    section {
+      background: var(--card);
+      padding: 1rem 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+    }
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
 
-        ul li {
-            margin-bottom: 1rem;
-        }
+    /* ---------- UTILITIES ---------- */
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .badge {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: .35rem .75rem;
+      font-size: .9rem;
+      font-weight: 600;
+    }
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-        }
+    table { width: 100%; border-collapse: collapse; }
+    th { text-align: left; padding: 1rem; white-space: nowrap; }
+    th, td { padding: .75rem }
+    tr + tr { border-top: 1px solid var(--border); }
+    tr:nth-child(even) { background: rgba(243,244,246,.5); }
 
-        .skill {
-            background-color: #667eea;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            margin: 0.5rem;
-            font-weight: 700;
-        }
+    a { color: var(--accent); }
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: #333;
-            color: #fff;
-        }
-
-        a {
-            color: #667eea;
-            text-decoration: none;
-        }
-    </style>
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      color: #4b5563;
+      font-size: .9rem;
+    }
+  </style>
 </head>
-
 <body>
-    <header>
-        <h1>Your Name Here</h1>
-        <p>Experienced Software Developer | SAP Commerce Developer & Support Specialist</p>
-    </header>
+  <header>
+    <h1>Mikhail Goncharenko</h1>
+    <p>Senior Java Engineer | Certified SAP Commerce Cloud Developer</p>
 
-    <div class="container">
-        <section id="about">
-            <h2 class="section-title">About Me</h2>
-            <p>I am an experienced software developer with expertise in SAP Commerce development and support. I specialize in designing, implementing, and supporting software solutions that are reliable, scalable, and meet clients' needs.</p>
-        </section>
+    <nav>
+      <ul>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#way-of-working">Way Of Workings</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#certs">Certifications</a></li>
+        <li><a href="#tech">Tech Stack</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <section id="experience">
-            <h2 class="section-title">Professional Experience</h2>
-            <ul>
-                <li>
-                    <strong>SAP Commerce Developer & Support Specialist</strong> - XYZ Company (Year - Present)<br>
-                    Responsible for SAP Commerce development, providing support, and implementing new features to improve user experiences.
-                </li>
-                <li>
-                    <strong>Software Developer</strong> - ABC Company (Year - Year)<br>
-                    Developed custom software solutions, integrated third-party services, and participated in the full software lifecycle.
-                </li>
-            </ul>
-        </section>
+  <main class="container">
+    
+    <section id="summary">
+      <h2 class="section-title">Professional Summary</h2>
+      <p>Senior Java developer with 7 years of hands‑on experience designing, building and supporting high‑traffic e‑commerce solutions on the SAP Commerce (Hybris) platform. Proven track record in delivering B2C and B2B storefronts, integrating complex ERP and loyalty ecosystems, and mentoring distributed development teams. Skilled in modern Java / Spring, RESTful API design, cloud deployments and agile practices.</p>
+    </section>
 
-        <section id="skills">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills">
-                <div class="skill">Java</div>
-                <div class="skill">SAP Commerce</div>
-                <div class="skill">Spring Framework</div>
-                <div class="skill">REST APIs</div>
-                <div class="skill">Problem Solving</div>
-                <div class="skill">SQL</div>
-                <div class="skill">Agile Methodologies</div>
-            </div>
-        </section>
+    <section id="way-of-working">
+      <h2 class="section-title">Way Of Working</h2>
+      <p>Guided by DRY, KISS and SOLID, I aim for clean, maintainable code yet stay pragmatic: when deadlines outweigh architectural dividends, I deliver the simplest solution that works, flagging refactors for later. I write tests not to inflate coverage dashboards but to safeguard behaviour where failure hurts—payments, pricing, order flow. Easy-going with stakeholders, I never say “can’t”; instead I outline cost-benefit trade-offs, suggest lean alternatives, and provide clear impact estimates. The result is a steady cadence of value, low defect counts, and a team culture focused on outcomes, not dogma.</p>  
+    </section>
+    
+    <section id="skills">
+      <h2 class="section-title">Core Competencies</h2>
+      <div class="skills-wrap">
+        <span class="badge">SAP Commerce Cloud</span>
+        <span class="badge">E-commerce Architecture</span>
+        <span class="badge">Backend Development</span>
+        <span class="badge">System Design</span>
+        <span class="badge">Cloud Deployments</span>
+        <span class="badge">Integration & APIs</span>
+        <span class="badge">Continuous Delivery</span>
+        <span class="badge">Agile Software Development</span>
+        <span class="badge">System analysis</span>
+        <span class="badge">Business analysis</span>
+        <span class="badge">Technical writing</span>
+        <span class="badge">Technical Leadership</span>
+        <span class="badge">Mentoring</span>
+      </div>
+    </section>
 
-        <section id="contact">
-            <h2 class="section-title">Contact</h2>
-            <p>If you wish to contact me, feel free to drop me an email at <a href="mailto:your.email@example.com">your.email@example.com</a>.</p>
-        </section>
-    </div>
+    <section id="tech">
+      <h2 class="section-title">Technical Environment</h2>
+      <p><strong>Languages & Frameworks:</strong>Java, Spring, JUnit, Mockito, Spock, Groovy, HTML, CSS, JavaScript, Angular, HTMX<br>
+      <strong>Platforms & Tools:</strong> SAP Commerce (6.3 – 2211), SAP Commerce Cloud, Gradle, Maven, GitLab, Azure DevOps, Docker<br>
+      <strong>Databases and Services</strong> PostgreSQL, MS SQL, Redis, MongoDB, Solr, Keycloak<br>
+      <strong>Practices:</strong> Agile/Scrum, CI/CD, TDD, Code Review</p>
+    </section>
 
-    <footer>
-        <p>Connect with me on <a href="https://linkedin.com/in/your-profile" target="_blank">LinkedIn</a></p>
-    </footer>
+    <section id="experience">
+      <h2 class="section-title">Professional Experience</h2>
+      <table>
+        <tr>
+          <th>2017 – 2019</th>
+          <td><strong>Junior Java / Java Developer</strong> – <em>Global IT Services Provider</em><br>
+            Designed & extended RESTful APIs for real‑time stock, pricing and loyalty integrations for a leading pharmacy chain (>10 000 SKUs). Built geo‑aware “Click & Reserve” flow, cutting basket abandonment by <strong>18 %</strong>. Mentored two junior engineers.</td>
+        </tr>
+        <tr>
+          <th>2019 – 2021</th>
+          <td><strong>Java Developer</strong> – <em>International Sports & Fashion Conglomerate</em><br>
+            Rolled out multilingual & multicurrency B2C storefronts. Integrated WorldPay payments with full refund & exchange flows aligned to PCI‑DSS. Extended Backoffice and Customer Support Cockpits.</td>
+        </tr>
+        <tr>
+          <th>2021 – 2022</th>
+          <td><strong>Senior Java Developer / Solution Architect</strong> – <em>Leading Russian DIY Retailer</em><br>
+            Delivered region‑aware price‑management module (>1 M price points). Implemented comprehensive promotion mechanics. Trained client team, achieving independent delivery capability sign‑off.</td>
+        </tr>
+        <tr>
+          <th>2022 – 2023</th>
+          <td><strong>Senior Java Developer / Solution Architect</strong> – <em>Global Direct‑Selling Consumer Goods Company</em><br>
+            Executed zero‑downtime migration from UAT to production. Refactored payment‑provider integration, elevating code quality to internal “S4”. Provided hyper‑care during go‑live, resolving critical issues within SLA.</td>
+        </tr>
+        <tr>
+          <th>2023 – 2024</th>
+          <td><strong>Senior Java Developer / Tech Lead</strong> – <em>Global Beverage Corporation (E‑Commerce Division)</em><br>
+            Key resource launching a D2C commerce portal. Delivered deep customisations in pricing & order orchestration. Established code‑of‑conduct across development team while doubling as business analyst & developer.</td>
+        </tr>
+        <tr>
+          <th>2024 – </th>
+          <td><strong>Senior Java Developer</strong> – <em>Same Client, Global D2C Roll‑out Program</em><br>
+            Spearheading expansion of the D2C platform to multiple regions with country‑specific logic. Integrated SAP S/4HANA for real‑time stock, pricing & ordering. Implemented custom solutions for promotions, stock visibility & search, customer-specific product listings etc.</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="certs">
+      <h2 class="section-title">Certifications</h2>
+      <ul>
+        <li>SAP Certified Development Professional – SAP Commerce Cloud 1811 Developer (2019)</li>
+        <li>SAP Certified Product Support Specialist – SAP Commerce (2019)</li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2 class="section-title">Education & Additional Information</h2>
+      <ul>
+        <li>Autodidact</li>
+        <li>Languages: English (B2), Russian (native)</li>
+        <li>CT internal AI Hackathon winner</li>
+        <li>Regular speaker at local Java & SAP Commerce meet‑ups</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact Me</h2>
+      <p><a href="mailto:naatsms@yahoo.com">E-Mail</a><br>
+         <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a></p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Mikhail Goncharenko
+  </footer>
 </body>
-
 </html>
