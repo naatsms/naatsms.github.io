@@ -7,14 +7,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #e8efff;           /* light gray page background */
+      --bg: #e8efff;
       --card: rgb(255, 255, 255);
       --backgound: linear-gradient(0deg, rgb(122, 222, 255) 0%, rgb(55, 155, 255) 100%);
-      --text: #1a202c;         /* near‑black */
-      --accent: rgb(55, 155, 255);      /* blue for emphasis */
-      --border: #e2e8f0;       /* subtle borders */
-      --shadow: 0 1px 3px rgba(0,0,0,.08); /* soft card shadow */
+      --text: #1a202c;
+      --accent: rgb(55, 155, 255);
+      --border: #e2e8f0;
+      --shadow: 0 1px 3px rgba(0,0,0,.08);
+      --header-h: 250px;
     }
+    html { scroll-behavior: smooth; }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -24,7 +26,6 @@
       line-height: 1.65;
     }
 
-    /* ---------- LAYOUT ---------- */
     header {
       background: var(--backgound);
       border-bottom: 1px solid var(--border);
@@ -60,6 +61,7 @@
       padding: 1rem 1.75rem;
       margin-bottom: 2rem;
       box-shadow: var(--shadow);
+      scroll-margin-top: var(--header-h);
     }
     .section-title {
       font-size: 1.35rem;
@@ -68,7 +70,6 @@
       color: var(--accent);
     }
 
-    /* ---------- UTILITIES ---------- */
     .skills-wrap { display: flex; flex-wrap: wrap; gap: .6rem; }
     .badge {
       background: var(--bg);
@@ -102,11 +103,11 @@
     <nav>
       <ul>
         <li><a href="#summary">Summary</a></li>
-        <li><a href="#skills">Skills</a></li>
         <li><a href="#way-of-working">Way Of Workings</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#tech">Tech Stack</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#certs">Certifications</a></li>
-        <li><a href="#tech">Tech Stack</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -145,7 +146,7 @@
     </section>
 
     <section id="tech">
-      <h2 class="section-title">Technical Environment</h2>
+      <h2 class="section-title">Technical Stack</h2>
       <p><strong>Languages & Frameworks:</strong>Java, Spring, JUnit, Mockito, Spock, Groovy, HTML, CSS, JavaScript, Angular, HTMX<br>
       <strong>Platforms & Tools:</strong> SAP Commerce (6.3 – 2211), SAP Commerce Cloud, Gradle, Maven, GitLab, Azure DevOps, Docker<br>
       <strong>Databases and Services</strong> PostgreSQL, MS SQL, Redis, MongoDB, Solr, Keycloak<br>
